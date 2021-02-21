@@ -1,0 +1,90 @@
+html,
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.05rem;
+}
+footer.footer {
+    margin-top: auto;
+    padding-bottom: 2rem;
+    background-color: #ede8ff;
+}
+.home {
+    color: white;
+    background-color: black;
+    padding: 0.2em;
+}
+
+a {
+    color: inherit;
+    border-bottom: 3px dashed #9981ff;
+}
+a:hover {
+    border-bottom-style: solid;
+}
+nav.navbar a {
+    border-bottom: 0px;
+}
+nav.navbar{
+    background-color: #d8cfff;
+}
+a.navbar-item.is-selected {
+    background-color: white;
+}
+
+.content table td.market-share {
+    border-right: 1px solid #ccc;
+}
+td.market-share div {
+    background-color:#ccc;
+    padding: 0 0.2rem;
+}
+
+.score-5 {
+    background-color: #84fd7f;
+}
+.score-4 {
+    background-color: #c8ffc0;
+}
+.score-3 {
+}
+.score-2 {
+    background-color: #ffd7d4;
+}
+/* https://colordesigner.io/gradient-generator */
+.score-1 {
+    background-color: #ffaeab;
+}
+.score-0 {
+    background-color: #ff8484;
+}
+.score--1 {
+    color: transparent;
+    /* http://stripesgenerator.com/ */
+    background-image: linear-gradient(40deg, #d6d6d6 3.13%, #fff 3.13%, #fff 50%, #d6d6d6 50%, #d6d6d6 53.13%, #fff 53.13%, #fff 100%);
+    background-size: 24.89px 20.89px;
+}
+
+a.tooltip {
+    color: white;
+    background-color: grey;
+    border-radius: 50%;
+    padding: 1px 7px;
+    margin: 2px;
+    text-align: center;
+    border-bottom: inherit;
+}
+
+.title.is-2 {
+  font-size: 2.1rem;
+}
+.title.is-3 {
+  font-size: 1.5rem;
+}
+.title.is-4 {
+  font-size: 1.3rem;
+}
+.title.is-5 {
+  font-size: 1.1rem;
+}
