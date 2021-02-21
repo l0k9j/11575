@@ -7,7 +7,7 @@
 
     <title>Trials | WebVersity </title>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link rel="stylesheet" href="/webversity/a/main.css">
+    <link rel="stylesheet" href="/11575/a/main.css">
     <link rel="stylesheet" href="/a/main.css">
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@creativebulma/bulma-tooltip@1.2.0/dist/bulma-tooltip.min.css">
@@ -15,7 +15,7 @@
     <script defer src="//use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <script src="/webversity/a/main.js"></script>
+    <script src="/11575/a/main.js"></script>
     <script src="/a/main.js"></script>
     <!-- script src="//cdn.jsdelivr.com/package/npm/@creativebulma/bulma-tooltip"></script -->
 
@@ -60,32 +60,39 @@
       </h1>
 
       <div class="content">
-        <table class="table is-striped is-narrow">
-<thead>
-<tr>
-<th>Company</th>
-<th>Date</th>
-<th>Country</th>
-<th>Fine</th>
-<th>Summary</th>
-<th>Verdict</th>
-<th>Article</th>
-</tr>
-</thead>
-<tbody>
+        <div id="search">
+    <table class="table is-striped is-narrow">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Date</th>
+                <th>Country</th>
+                <th>Fine</th>
+                <th>Summary</th>
+                <th>Verdict</th>
+                <th>Article</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="t in data">
+                <td>{{ t.company }}</td>
+                <td>{{ t.verdict_date }}</td>
+                <td>{{ t.country }}</td>
+                <td>{{ t.fine }}</td>
+                <td>{{ t.summary }}</td>
+                <td>{{ t.link_verdict }}</td>
+                <td>{{ t.link_article }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-<tr>
-<td>facebook</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-
-</tbody>
-</table>
+<script>
+var app = new Vue({
+  el: '#search',
+  data: {"schema":{"fields":[{"name":"index","type":"integer"},{"name":"company","type":"string"},{"name":"verdict_date","type":"string"},{"name":"summary","type":"string"},{"name":"link_article","type":"string"},{"name":"link_verdict","type":"string"},{"name":"fine","type":"string"},{"name":"other_party","type":"string"},{"name":"topics","type":"string"},{"name":"country","type":"string"}],"primaryKey":["index"],"pandas_version":"0.20.0"},"data":[{"index":0,"company":"facebook","verdict_date":"","summary":"","link_article":"","link_verdict":"","fine":"","other_party":"","topics":"","country":""}]}
+})
+</script>
       </div>
 
       

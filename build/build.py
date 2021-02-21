@@ -120,7 +120,6 @@ class SiteBuilder:
 
         print(self.finc, ret)
 
-
     def post_process(self, content):
         ret = content
 
