@@ -2,8 +2,9 @@ csv_trials=trials.csv
 title=Decisions
 hide_page_title=1
 
-**This is a work in progress**.
-To suggest corrections or new entries, please [create a new issue on github](https://github.com/l0k9j/11575/issues).
+List of decisions from official authorities about illegal practices by large technology companies.
+**This is a work in progress** (list is not reviewed, incomplete and focuses on Facebook only).
+*To suggest corrections or new entries, please [create a new issue on github](https://github.com/l0k9j/11575/issues)*.
 
 {% raw %}
 <div id="search">
