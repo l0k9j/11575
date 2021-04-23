@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <title>Decisions | WebVersity </title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/11575/a/main.css">
+    <link rel="stylesheet" href="/a/main.css">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@creativebulma/bulma-tooltip@1.2.0/dist/bulma-tooltip.min.css">
+
+    <script defer src="//use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="/11575/a/main.js"></script>
+    <script src="/a/main.js"></script>
+    <!-- script src="//cdn.jsdelivr.com/package/npm/@creativebulma/bulma-tooltip"></script -->
+
+    <!-- script defer src="infra.json"></script -->
+    <!-- script defer src="editor.js"></script -->
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index">
+        <span class="home">WebVersity</span>
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        
+          <a href="decisions" class="navbar-item is-selected">
+            Decisions
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+  <section class="section">
+    <div class="container">
+      
+
+      <div class="content">
+        <p>List of decisions from official authorities about illegal practices by large technology companies.
+<strong>This is a work in progress</strong> (list is not reviewed, incomplete and focuses on Facebook only).
+<em>To suggest corrections or new entries, please <a href="https://github.com/l0k9j/11575/issues">create a new issue on github</a></em>.</p>
+<div id="search">
+
+    <h1 class="title is-1">Decisions ({{ trials.length }})</h1>
+
+    <label>Filter by keywords: <input type="search" v-model="filter_keywords"></label>
+    <br><br>
+    <table class="table is-narrow">
+        <thead>
+            <tr>
+                <th>Source</th>
+                <th>Company</th>
+                <th>Date (D/M/Y)</th>
+                <th>Jurisdiction</th>
+                <th>Fine</th>
+                <th>Press</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template v-for="(t, i) in trials"> 
+                <tr :class="{'is-striped': i % 2}">
+                    <td><a v-if="t.link_verdict" :href="t.link_verdict" target="_blank" v-if="t.authority">Source</a></td>
+                    <td>{{ t.company }}</td>
+                    <td>{{ t.verdict_date }}</td>
+                    <td>{{ t.country }}</td>
+                    <td>{{ t.currency }} {{ t.fine|number }}</td>
+                    <td><a :href="t.link_article" target="_blank" v-if="t.link_article">article</a></td>
+                </tr>
+                <tr :class="{'is-striped': i % 2}" v-if="t.summary || t.authority">
+                    <td></td>
+                    <td colspan="20">
+                        <template v-if="t.summary"><strong>Summary: </strong> {{ t.summary }}<br></template>
+                        <strong>Authority: </strong>{{t.authority}}
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+let trials = {"schema":{"fields":[{"name":"index","type":"integer"},{"name":"company","type":"string"},{"name":"verdict_date","type":"string"},{"name":"summary","type":"string"},{"name":"link_article","type":"string"},{"name":"link_verdict","type":"string"},{"name":"fine","type":"integer"},{"name":"currency","type":"string"},{"name":"other_party","type":"string"},{"name":"topics","type":"string"},{"name":"country","type":"string"},{"name":"authority","type":"string"},{"name":"case","type":"string"},{"name":"verdict_date_sort","type":"datetime"}],"primaryKey":["index"],"pandas_version":"0.20.0"},"data":[{"index":0,"company":"facebook inc","verdict_date":"17\/02\/2021","summary":"Facebook Inc. failed to comply with the order requiring to remove the unfair practice on the use of user data and to publish an amending declaration requested by the Authority","link_article":"https:\/\/www.politico.eu\/article\/italy-fines-facebook-e7m-for-repeated-data-violations\/","link_verdict":"https:\/\/en.agcm.it\/en\/media\/press-releases\/2021\/2\/IP330","fine":7000000,"currency":"\u20ac","other_party":"","topics":"","country":"Italy","authority":"Italian Competition Authority (AGCM\/ICA)","case":"","verdict_date_sort":"2021-02-17T00:00:00.000Z"},{"index":1,"company":"facebook inc","verdict_date":"24\/07\/2019","summary":"the company violated a 2012 FTC order by deceiving users about their ability to control the privacy of their personal information.","link_article":"https:\/\/www.theguardian.com\/technology\/2019\/jul\/12\/facebook-fine-ftc-privacy-violations","link_verdict":"https:\/\/www.ftc.gov\/news-events\/press-releases\/2019\/07\/ftc-imposes-5-billion-penalty-sweeping-new-privacy-restrictions","fine":5000000000,"currency":"$","other_party":"","topics":"","country":"US","authority":"Federal Trade Commission (FTC)","case":"","verdict_date_sort":"2019-07-24T00:00:00.000Z"},{"index":2,"company":"facebook inc","verdict_date":"29\/11\/2018","summary":"unfair commercial practices for using its subscribers\u2019 data for commercial purposes","link_article":"https:\/\/www.euronews.com\/2021\/02\/17\/facebook-fined-7-million-in-italy-for-misleading-data-practices","link_verdict":"https:\/\/www.agcm.it\/media\/comunicati-stampa\/2018\/12\/Uso-dei-dati-degli-utenti-a-fini-commerciali-sanzioni-per-10-milioni-di-euro-a-Facebook","fine":10000000,"currency":"\u20ac","other_party":"","topics":"","country":"Italy","authority":"Italian Competition Authority (AGCM\/ICA)","case":"","verdict_date_sort":"2018-11-29T00:00:00.000Z"},{"index":3,"company":"facebook inc","verdict_date":"25\/10\/2018","summary":"Facebook failed to protect users\u2019 personal information","link_article":"https:\/\/www.independent.co.uk\/news\/uk\/home-news\/facebook-data-uk-election-brexit-referendum-fake-news-fine-commissioners-office-watchdog-a8441301.html","link_verdict":"https:\/\/ico.org.uk\/facebook-fine-20181025","fine":500000,"currency":"\u00a3","other_party":"","topics":"","country":"UK","authority":"Information Commissioner\u2019s Office (ICO)","case":"","verdict_date_sort":"2018-10-25T00:00:00.000Z"},{"index":4,"company":"facebook inc","verdict_date":"11\/05\/2017","summary":"WhatsApp fined for having forced its users to share their personal data with Facebook","link_article":"","link_verdict":"https:\/\/en.agcm.it\/en\/media\/detail?id=a6c51399-33ee-45c2-9019-8f4a3ae09aa1","fine":3000000,"currency":"\u20ac","other_party":"","topics":"","country":"Italy","authority":"Italian Competition Authority (AGCM\/ICA)","case":"","verdict_date_sort":"2017-11-05T00:00:00.000Z"},{"index":5,"company":"facebook inc","verdict_date":"05\/2017","summary":"providing misleading information about user accounts before its 2014 takeover of WhatsApp","link_article":"https:\/\/www.theguardian.com\/business\/2017\/may\/18\/facebook-fined-eu-whatsapp-european-commission","link_verdict":"","fine":110000000,"currency":"\u20ac","other_party":"","topics":"","country":"European Union","authority":"","case":"","verdict_date_sort":"2017-05-01T00:00:00.000Z"},{"index":6,"company":"facebook inc","verdict_date":"05\/2017","summary":"failing to prevent users\u2019 data being accessed by advertisers","link_article":"https:\/\/www.reuters.com\/article\/us-facebook-france-idUSKCN18C10C","link_verdict":"","fine":150000,"currency":"\u20ac","other_party":"","topics":"","country":"France","authority":"","case":"","verdict_date_sort":"2017-05-01T00:00:00.000Z"},{"index":7,"company":"Google","verdict_date":"06\/2017","summary":"Google has abused its power by promoting its own shopping comparison service at the top of search results","link_article":"https:\/\/www.bbc.co.uk\/news\/technology-40406542","link_verdict":"","fine":2420000000,"currency":"\u20ac","other_party":"","topics":"","country":"European Union","authority":"","case":"","verdict_date_sort":"2017-06-01T00:00:00.000Z"},{"index":8,"company":"Microsoft","verdict_date":"2008","summary":"","link_article":"https:\/\/www.bbc.co.uk\/news\/technology-40406542","link_verdict":"","fine":899000000,"currency":"\u20ac","other_party":"","topics":"","country":"European Union","authority":"","case":"","verdict_date_sort":"2008-01-01T00:00:00.000Z"},{"index":9,"company":"Microsoft","verdict_date":"2013","summary":"","link_article":"https:\/\/www.bbc.co.uk\/news\/technology-40406542","link_verdict":"","fine":561000000,"currency":"\u20ac","other_party":"","topics":"","country":"European Union","authority":"","case":"","verdict_date_sort":"2013-01-01T00:00:00.000Z"},{"index":10,"company":"Google","verdict_date":"2012","summary":"","link_article":"https:\/\/www.nytimes.com\/2019\/07\/12\/technology\/facebook-ftc-fine.html","link_verdict":"","fine":22000000,"currency":"$","other_party":"","topics":"","country":"European Union","authority":"","case":"","verdict_date_sort":"2012-01-01T00:00:00.000Z"},{"index":11,"company":"facebook inc","verdict_date":"10\/08\/2012","summary":"Facebook deceived consumers by telling them they could keep their information on Facebook private, and then repeatedly allowing it to be shared and made public.","link_article":"","link_verdict":"https:\/\/www.ftc.gov\/sites\/default\/files\/documents\/cases\/2012\/08\/120810facebookdo.pdf","fine":0,"currency":"$","other_party":"","topics":"","country":"US","authority":"Federal Trade Commission (FTC)","case":"","verdict_date_sort":"2012-10-08T00:00:00.000Z"}]}
+trials.data = trials.data.sort(
+    function(a,b) {
+        let diff = (new Date(b.verdict_date_sort) - new Date(a.verdict_date_sort))
+        return diff
+    }
+)
+trials.filter_keywords = ''
+
+var app = new Vue({
+  el: '#search',
+  data: trials,
+  filters: {
+    number: function (value) {
+        if (!value) return ''
+        return parseInt(value).toLocaleString()
+    }
+  },
+  computed: {
+    trials: function() {
+      return this.data.filter(
+        t => ((t.company.toLowerCase().indexOf('facebook') > -1) && (t.company + t.country + t.summary + t.authority + t.verdict_date).toLowerCase().indexOf(this.filter_keywords) > -1)
+      )
+    },
+  },
+})
+</script>
+      </div>
+
+      
+
+    </div>
+  </section>
+
+  <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+<!--      WebVersity is a Beta site launched in 2020 | We don't use cookie, we don't collect any data.-->
+      Webversity 2021 (Beta)
+    </p>
+  </div>
+  </footer>
+
+  </body>
+</html>
