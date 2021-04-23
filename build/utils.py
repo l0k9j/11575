@@ -76,6 +76,9 @@ def process_context(context):
             # remove empty rows
             df.dropna(how='all', inplace=True)
             df.fillna('', inplace=True)
+            for col in df.columns:
+                if 'date' in col:
+                    df[col+'_sort'] = pandas.to_datetime(df[col])
             context[k2] = df
         if re.match(r'^\d{4}-\d\d-\d\dT\d\d:.*$', context[k]):
             context[k] = datetime.datetime.fromisoformat(context[k])

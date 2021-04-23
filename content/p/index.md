@@ -1,6 +1,6 @@
 title=WebVersity
 
-<h2>Tables</h2>
+<h2>Datasets</h2>
 <ul>
-<li><a href="trials">Trials</a></li>
+    <li><a href="decisions">Decisions & sanctions</a></li>
 </ul>

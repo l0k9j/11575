@@ -63,9 +63,11 @@ class SiteBuilder:
 
         from pathlib import Path
         import time
+        build_if_new = watch
         while 1:
             for md_path in list(Path(settings.PATH_MD).rglob("*.md*")):
-                self.convert(md_path, if_new=watch)
+                self.convert(md_path, if_new=build_if_new)
+                build_if_new = watch
             if watch:
                 time.sleep(1)
             else:

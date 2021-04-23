@@ -88,3 +88,7 @@ a.tooltip {
 .title.is-5 {
   font-size: 1.1rem;
 }
+
+tr.is-striped {
+  background-color: #eee;
+}
