@@ -1,8 +1,9 @@
 csv_trials=cases.csv
 title=Decisions
 hide_page_title=1
+updated=2021-04-23T19:20:35.788623
 
-List of decisions from various official authorities about illegal practices by large technology companies.
+List of statements and fines issued by various official authorities in response to illegal practices by large technology companies.
 
 *To suggest corrections or new entries, please [create a new issue on github](https://github.com/l0k9j/11575/issues)*.
 
