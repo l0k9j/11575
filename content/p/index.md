@@ -1,4 +1,4 @@
-title=WebVersity
+title=Home
 
 <h2>Datasets</h2>
 <ul>
